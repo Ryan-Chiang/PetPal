@@ -10,7 +10,7 @@ bot = commands.Bot(command_prefix="/", intents=intents)
 
 # 載入.env檔案
 load_dotenv()
-token = os.getenv("TOKEN")
+token = os.getenv("DISCORD_TOKEN")
 print(token)
 
 
