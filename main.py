@@ -1,3 +1,5 @@
+import datetime
+import json
 import logging
 import asyncio, os, discord
 from discord.ext import commands
@@ -21,8 +23,7 @@ async def on_ready():
     botCount = await bot.tree.sync()
     for cmdItem in botCount:
         print(f"sync cmd: {cmdItem.name}")
-
-
+    
 
 #load commands
 @bot.command()
