@@ -15,7 +15,7 @@ class Meow(commands.Cog):
     async def meow(self, interaction: discord.Interaction):        
         with open("resources/data/cat.json", "r") as f:
             cat_data = json.load(f)
-            print(f'cat_data: {cat_data}')
+            
             idx_random = random.randint(0, len(cat_data)-1)
             item_random = cat_data[idx_random]
             
@@ -46,12 +46,13 @@ class Meow(commands.Cog):
             
             
 
-            # 添加图片 = 猫的图片
-            item_embed.set_image(url=item_random['image_link'])
-            print(item_random)
-            print(f'item_embed: {item_embed}')                       
+            # 添加图片 = 猫的图片            
+            img_cat = discord.File(f"img/cats/{item_random['name']}.jpg", filename=f'{item_random['name']}.jpg')            
+            item_embed.set_image(url=f'attachment://{item_random['name']}.jpg')
+
+            # 发送Embed消息  
             try: 
-                await interaction.response.send_message(file=img_author_icon,embed=item_embed)
+                await interaction.response.send_message(files=[img_cat,img_author_icon],embed=item_embed)
             except Exception as e:
                 print(f'error: {e}')
 
