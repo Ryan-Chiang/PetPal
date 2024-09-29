@@ -12,7 +12,6 @@ class Meow(commands.Cog):
         super().__init__()
 
     @app_commands.command(name="meow",description="recommand a cat randomly")
-<<<<<<< HEAD
     async def meow(self, interaction: discord.Interaction):
 
         load_dotenv()
@@ -32,15 +31,6 @@ class Meow(commands.Cog):
             # 初始化Embed，其中：
             # 标题 = 猫名
             # 颜色 = PetPal的主题色
-=======
-    async def meow(self, interaction: discord.Interaction):        
-        with open("resources/data/cat.json", "r") as f:
-            cat_data = json.load(f)
-            print(f'cat_data: {cat_data}')
-            idx_random = random.randint(0, len(cat_data)-1)
-            item_random = cat_data[idx_random]
-            
->>>>>>> parent of 693ab7e (localize the cat img resources)
             item_embed = discord.Embed(title=item_random['name'], color=discord.Color.from_rgb(205,108,61))
 
             # 作者 = PetPal
@@ -66,11 +56,8 @@ class Meow(commands.Cog):
             item_embed.add_field(name='intelligence', value=to_star(item_random['intelligence']), inline=True)
             item_embed.add_field(name='other pets friendly', value=to_star(item_random['other_pets_friendly']), inline=True)
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> parent of 693ab7e (localize the cat img resources)
             # 添加图片 = 猫的图片
             item_embed.set_image(url=item_random['image_link'])
             print(item_random)
